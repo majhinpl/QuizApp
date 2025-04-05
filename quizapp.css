@@ -1,0 +1,27 @@
+.quiz-container {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--bg-300);
+  border-radius: 8px;
+}
+
+.quiz-container .choices {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.choices-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.choices-item {
+  list-style-type: upper-alpha;
+}

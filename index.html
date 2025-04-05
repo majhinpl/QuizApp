@@ -14,9 +14,31 @@
 <body>
   <div class="container">
     <div class="content-wrapper">
+      <h2>Quiz App</h2>
+      <div class="quiz-container">
+        <div class="question-container hidden">
+          <div class="question">
+            <h2>Qs.1 : This is a question.</h2>
+          </div>
+          <div class="choices">
+            <ul class="choices-list">
+
+            </ul>
+          </div>
+          <button class="secondary-btn next-btn hidden">Next question</button>
+        </div>
+        <div class="result-container hidden">
+          <h2>Your Score:</h2>
+          <p class="score"></p>
+          <button class="secondary-btn restart-btn">Restart Quiz</button>
+        </div>
+        <button type="button" class="primary-btn quiz-start-btn">
+          Start Quiz
+        </button>
+      </div>
     </div>
   </div>
-  <script src="./expenseTracker.js"></script>
+  <script src="./quizapp.js"></script>
 </body>
 
 </html>

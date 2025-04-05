@@ -27,7 +27,8 @@ body {
 
 .content-wrapper {
   margin: 0 auto;
-  width: 1200px;
+  width: 900px;
+  text-align: center;
 }
 
 .container {
@@ -50,4 +51,12 @@ input {
   background-color: inherit;
   cursor: pointer;
   color: inherit;
+}
+
+li {
+  list-style-type: none;
+}
+
+.hidden {
+  display: none;
 }
