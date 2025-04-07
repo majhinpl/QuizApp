@@ -13,15 +13,17 @@
   margin-bottom: 1rem;
 }
 
-.choices-list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 2rem;
-  margin-left: 1.5rem;
-  margin-top: 0.5rem;
+.choices-list li {
+  padding: 5px;
+  cursor: pointer;
 }
 
-.choices-item {
-  list-style-type: upper-alpha;
+.choices-list li:hover {
+  padding: 5px;
+  cursor: pointer;
+  background-color: var(--bg-100);
+}
+
+.choices-list li:active {
+  background-color: var(--bg-200);
 }

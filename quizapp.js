@@ -56,11 +56,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const questionText = document.querySelector(".question h2");
   const choicesList = document.querySelector(".choices-list");
+  const resultScore = document.querySelector(".score");
+  const restartBtn = document.querySelector(".restart-btn");
 
   let currentQsIdx = 0;
   let currentScore = 0;
 
   startBtn.addEventListener("click", startQuiz);
+
+  nextBtn.addEventListener("click", () => {
+    currentQsIdx++;
+    if (currentQsIdx < questions.length) {
+      showQs();
+    } else {
+      showResult();
+    }
+  });
+
+  restartBtn.addEventListener("click", () => {
+    currentQsIdx = 0;
+    currentScore = 0;
+    resultContainer.classList.add(".hidden");
+    startQuiz();
+  });
 
   function startQuiz() {
     startBtn.classList.add("hidden");
@@ -77,35 +95,25 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     choicesList.innerHTML = ""; // clear previous choices.
-    questions[currentQsIdx].options.forEach((option) => {
+    questions[currentQsIdx].options.forEach((option, idx) => {
       const listItem = document.createElement("li");
-      const label = document.createElement("label");
-      const input = document.createElement("input");
 
-      input.type = "radio";
-      input.name = `question-${currentQsIdx}`;
-      input.value = option;
+      listItem.innerText = option;
 
-      label.htmlFor = input.id;
-      label.textContent = option;
+      choicesList.appendChild(listItem);
 
-      label.prepend(input);
-      listItem.appendChild(label);
-      choicesList.appendChild(label);
-
-      input.addEventListener("click", () => selectAns(option));
+      listItem.addEventListener("click", () => selectAns(option, idx));
     });
   }
 
-  function selectAns(option) {
+  function selectAns(option, idx) {
     const correctAns = questions[currentQsIdx].correctAnswer;
-    const selectedAns = questions[currentQsIdx].options.indexOf();
+    const selectedAns = idx;
 
     if (selectedAns === correctAns) {
       currentScore++;
     }
-
-    console.log(selectedAns);
+    nextBtn.classList.remove("hidden");
   }
 
   function showChoices() {}
@@ -113,5 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function showResult() {
     questionContainer.classList.add("hidden");
     resultContainer.classList.remove("hidden");
+
+    resultScore.textContent = `${questions.length} /${currentScore}`;
   }
 });
